@@ -1,4 +1,5 @@
 // import fs from "fs";
+import validateQuery from "../../lib/validateQuery";
 import House from "../../models/House";
 
 export default async (req, res) => {
@@ -8,11 +9,12 @@ export default async (req, res) => {
   //     res.status(200).json(json.slice(0, 20));
   //     resolve(res);
   //   }));
-  const limit = ~~req.query.limit > 0 ? ~~req.query.limit : null;
-  const offset = ~~req.query.offset > 0 ? ~~req.query.offset : null;
-  const data = await House.findAll({
-    limit,
-    offset,
+
+  const { filter, pagination } = validateQuery(req.query);
+  console.log("filter, pagination",filter, pagination);
+  const { count, rows } = await House.findAndCountAll({
+    ...pagination,
+    where: { ...filter },
   });
-  res.send(data);
+  res.send({ count, houses: rows });
 };
