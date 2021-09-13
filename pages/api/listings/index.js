@@ -1,6 +1,6 @@
 // import fs from "fs";
-import validateQuery from "../../lib/validateQuery";
-import House from "../../models/House";
+import validateQuery from "../../../lib/validateQuery";
+import House from "../../../models/House";
 
 export default async (req, res) => {
   // await new Promise((resolve, reject) =>

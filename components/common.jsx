@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { darken, lighten } from "polished";
+import { darken } from "polished";
 
 export const primary = "#039BE5";
 export const Flex = styled.div`
@@ -10,9 +10,7 @@ export const Flex = styled.div`
   justify-content: ${(props) => props.justify || "space-between"};
   align-items: ${(props) => props.align || "unset"};
   margin: ${(props) => props.margin || "unset"};
-  & + & {
-    margin: ${(props) => props.gap || "unset"};
-  }
+  height:  ${(props) => props.height || "unset"};
 `;
 export const P = styled.p`
   margin-top: ${(props) => props.mt ?? "0"};
@@ -85,4 +83,7 @@ export const MergedBorders = styled.div`
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
   }
+`;
+export const Main = styled.main`
+  font-family: Roboto, serif;
 `;

@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { primary } from "./../common";
-import { lighten } from "polished";
+import {primary} from "./../common";
+import {lighten} from "polished";
 
 export const PaginationContainer = styled.ul`
   display: flex;
@@ -9,7 +9,6 @@ export const PaginationContainer = styled.ul`
   font-weight: bold;
   user-select: none;
   padding: 0;
-  display: flex;
   justify-content: center;
   margin: 15px 0;
 `;
@@ -47,6 +46,7 @@ export const PaginationNumber = styled.li`
   border: ${(props) => props.active && "1px solid" + primary};
   background: ${(props) => props.active && primary};
   color: ${(props) => props.active && "#ffffff"};
+
   &:hover {
     border: 1px solid ${primary};
   }

@@ -8,12 +8,12 @@ export default function createPages(totalPage, currentPage, display, offsetOn) {
           i++
         ) {
           pages.push(i);
-          if (i == totalPage) break;
+          if (i === totalPage) break;
         }
       } else {
         for (let i = 1; i <= display; i++) {
           pages.push(i);
-          if (i == totalPage) break;
+          if (i === totalPage) break;
         }
       }
     } else {

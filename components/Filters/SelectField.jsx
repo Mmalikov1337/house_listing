@@ -22,8 +22,6 @@ const Label = styled.label`
     top: 50%;
     right: 5px;
     display: block;
-    width: 10px;
-    height: 10px;
     background: transparent;
     transform: translateY(-50%);
     pointer-events: none;
@@ -72,7 +70,6 @@ export default function SelectField(props) {
   const { filters, setFilters } = React.useContext(FilterContext);
   const onChange = (e) => {
     const temp = { ...filters };
-    // console.log("temp", temp);
     if (!e.target.value || e.target.value === "none") {
       temp[props.filter.field] = undefined;
       setFilters(temp);

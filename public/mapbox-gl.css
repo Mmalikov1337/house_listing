@@ -1,0 +1,7 @@
+@import url("https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.css");
+.mapboxgl-canary {
+    background-color: salmon;
+}
+.mapboxgl-control-container{
+    display: none;
+}
