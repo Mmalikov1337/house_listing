@@ -135,7 +135,7 @@ export default function House(props) {
 
 export async function getServerSideProps(context) {
 	dotenv.config();
-	const apiRequestURL = new URL(`${process.env.API_URL}/api/listings/${context.params.id}`);
+	const apiRequestURL = new URL(`${process.env.API_URL}${process.env.PORT ? ":"+process.env.PORT : ""}/api/listings/${context.params.id}`);
 	const mapboxToken = process.env.REACT_APP_MAPBOX_TOKEN
 	const response = await fetch(apiRequestURL);
 	const {house} = await response.json();

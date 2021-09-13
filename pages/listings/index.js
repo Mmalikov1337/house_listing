@@ -22,7 +22,8 @@ export default function Listings(props) {
 					<CenterContainer>
 						<Flex direction="row" wrap="wrap">
 							{props.houses.map((item) => (//{pathname: "/listings/[id]", query:{id:item.id}}
-								<HouseCard house={item}
+								<HouseCard house={item} key={item.id}
+
 										   onClick={() => router.push({
 											   pathname: "/listings/[id]",
 											   query: {id: item.id}
@@ -44,8 +45,8 @@ export default function Listings(props) {
 
 export async function getServerSideProps(context) {
 	dotenv.config();
-	const resolvedURL = new URL(`${process.env.ROOT_URL}${context.resolvedUrl}`);
-	const apiRequestURL = new URL(`${process.env.API_URL}/api/listings`);
+	const resolvedURL = new URL(`${process.env.ROOT_URL}${process.env.PORT ? ":"+process.env.PORT : ""}${context.resolvedUrl}`);
+	const apiRequestURL = new URL(`${process.env.API_URL}${process.env.PORT ? ":"+process.env.PORT : ""}/api/listings`);
 	const entries = resolvedURL.searchParams.entries();
 	for (let [key, value] of entries) {
 		apiRequestURL.searchParams.append(key, value);

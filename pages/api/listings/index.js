@@ -11,7 +11,6 @@ export default async (req, res) => {
   //   }));
 
   const { filter, pagination } = validateQuery(req.query);
-  console.log("filter, pagination",filter, pagination);
   const { count, rows } = await House.findAndCountAll({
     ...pagination,
     where: { ...filter },

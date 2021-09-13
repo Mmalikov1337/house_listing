@@ -33,11 +33,9 @@ export default function App({Component, pageProps}) {
 
 	React.useEffect(() => {
 		const startHandler = () => {
-			console.log("routeChangeStart")
 			setLoading(true)
 		}
 		const completeHandler = () => {
-			console.log("routeChangeComplete")
 			setLoading(false)
 		}
 		Router.events.on("routeChangeStart", startHandler)
